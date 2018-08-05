@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workspaceFilter version="1.0">
+    <filter root="/conf/full-stack-training"/>
+    <filter root="/content/full-stack-training"/>
+    <filter root="/content/dam/full-stack-training"/>
+</workspaceFilter>
