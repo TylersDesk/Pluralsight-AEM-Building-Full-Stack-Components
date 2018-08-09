@@ -27,6 +27,10 @@
                             </assetToComponentMapping>
                         </cq:authoring>
                         <jcr:content
+                            cq:lastReplicated="{Date}2018-08-04T23:00:01.455-06:00"
+                            cq:lastReplicatedBy="admin"
+                            cq:lastReplicationAction="Activate"
+                            jcr:mixinTypes="[cq:ReplicationStatus]"
                             jcr:primaryType="nt:unstructured"
                             mergeList="{Boolean}true"/>
                     </content-default>
@@ -37,7 +41,12 @@
                         jcr:title="Training Content"
                         sling:resourceType="wcm/core/components/policy/policy"
                         components="[/libs/wcm/foundation/components/responsivegrid,group:full-stack-training]">
-                        <jcr:content jcr:primaryType="nt:unstructured"/>
+                        <jcr:content
+                            cq:lastReplicated="{Date}2018-08-04T23:00:01.455-06:00"
+                            cq:lastReplicatedBy="admin"
+                            cq:lastReplicationAction="Activate"
+                            jcr:mixinTypes="[cq:ReplicationStatus]"
+                            jcr:primaryType="nt:unstructured"/>
                         <cq:authoring jcr:primaryType="nt:unstructured">
                             <assetToComponentMapping jcr:primaryType="nt:unstructured">
                                 <mapping_1531531184225
@@ -49,6 +58,20 @@
                             </assetToComponentMapping>
                         </cq:authoring>
                     </policy_273366039053945>
+                    <policy_1533483073050
+                        jcr:lastModified="{Date}2018-08-08T22:18:28.586-06:00"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Full Stack Content"
+                        sling:resourceType="wcm/core/components/policy/policy"
+                        components="[/apps/full-stack-training/components/content/articlefeed,/apps/full-stack-training/components/content/text,/apps/full-stack-training/components/content/title]">
+                        <jcr:content
+                            cq:lastReplicated="{Date}2018-08-08T22:19:37.271-06:00"
+                            cq:lastReplicatedBy="admin"
+                            cq:lastReplicationAction="Activate"
+                            jcr:mixinTypes="[cq:ReplicationStatus]"
+                            jcr:primaryType="nt:unstructured"/>
+                    </policy_1533483073050>
                 </responsivegrid>
             </components>
         </foundation>
@@ -62,7 +85,12 @@
                         jcr:title="full-stack-training Form"
                         sling:resourceType="wcm/core/components/policy/policy"
                         components="[/apps/full-stack-training/components/form/button,/apps/full-stack-training/components/form/hidden,/apps/full-stack-training/components/form/options,/apps/full-stack-training/components/form/text]">
-                        <jcr:content jcr:primaryType="nt:unstructured"/>
+                        <jcr:content
+                            cq:lastReplicated="{Date}2018-08-08T22:19:37.271-06:00"
+                            cq:lastReplicatedBy="admin"
+                            cq:lastReplicationAction="Activate"
+                            jcr:mixinTypes="[cq:ReplicationStatus]"
+                            jcr:primaryType="nt:unstructured"/>
                     </form-container>
                 </container>
             </form>
@@ -73,4 +101,19 @@
             </content>
         </components>
     </full-stack-training>
+    <policy_1533445754332
+        jcr:lastModified="{Date}2018-08-04T23:09:26.681-06:00"
+        jcr:lastModifiedBy="admin"
+        jcr:primaryType="nt:unstructured"
+        jcr:title="Test"
+        sling:resourceType="wcm/core/components/policy/policy"
+        components="group:Address">
+        <jcr:content
+            cq:lastReplicated="{Date}2018-08-04T23:09:57.272-06:00"
+            cq:lastReplicatedBy="admin"
+            cq:lastReplicationAction="Activate"
+            jcr:mixinTypes="[cq:ReplicationStatus]"
+            jcr:primaryType="nt:unstructured"/>
+        <section jcr:primaryType="nt:unstructured"/>
+    </policy_1533445754332>
 </jcr:root>

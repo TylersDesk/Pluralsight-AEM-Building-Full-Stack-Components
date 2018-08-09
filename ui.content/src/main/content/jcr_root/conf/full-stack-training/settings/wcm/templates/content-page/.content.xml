@@ -2,6 +2,8 @@
 <jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
     jcr:primaryType="cq:Template">
     <jcr:content
+        cq:lastModified="{Date}2018-08-08T22:18:28.591-06:00"
+        cq:lastModifiedBy="admin"
         cq:templateType="/conf/full-stack-training/settings/wcm/template-types/content-page"
         jcr:description="Simple content page for full-stack-training"
         jcr:primaryType="cq:PageContent"
