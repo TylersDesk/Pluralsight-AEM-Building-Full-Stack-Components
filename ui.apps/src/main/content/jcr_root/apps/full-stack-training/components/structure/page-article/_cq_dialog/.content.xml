@@ -40,7 +40,6 @@
                                                 sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
                                                 fieldLabel="Title for Feed"
                                                 maxlength="{Long}25"
-                                                required="{Boolean}true"
                                                 name="./feedTitle"/>
                                             <feedDesc
                                                 cq:showOnCreate="{Boolean}true"
