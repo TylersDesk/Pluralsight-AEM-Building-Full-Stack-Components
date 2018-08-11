@@ -28,15 +28,10 @@
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/coral/foundation/container">
                                 <items jcr:primaryType="nt:unstructured">
-                                    <text
-                                        jcr:primaryType="nt:unstructured"
-                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
-                                        fieldLabel="Text"
-                                        name="./text"
-                                        text="ahagfdafgasf"/>
+                                    
                                     <section
                                         jcr:primaryType="nt:unstructured"
-                                        jcr:title="Social Media sharing"
+                                        jcr:title="Article Meta"
                                         sling:resourceType="granite/ui/components/coral/foundation/form/fieldset">
                                         <items jcr:primaryType="nt:unstructured">
                                             <feedtitle
@@ -44,7 +39,26 @@
                                                 jcr:primaryType="nt:unstructured"
                                                 sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
                                                 fieldLabel="Title for Feed"
+                                                maxlength="{Long}25"
+                                                required="{Boolean}true"
                                                 name="./feedTitle"/>
+                                            <feedDesc
+                                                cq:showOnCreate="{Boolean}true"
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textarea"
+                                                fieldLabel="Description for Feed"
+                                                maxlength="{Long}60"
+                                                required="{Boolean}true"
+                                                name="./feedDesc"/>
+                                            <articledate
+                                                cq:showOnCreate="{Boolean}true"
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="/libs/granite/ui/components/coral/foundation/form/datepicker"
+                                                fieldLabel="Article Date"
+                                                required="{Boolean}true"
+                                                name="./articleDate"/>
+                                            
+                                                
                                         </items>
                                     </section>
                                 </items>
