@@ -80,7 +80,7 @@ public class ArticleEndpoint extends SlingSafeMethodsServlet {
         final Resource resource = req.getResource();
 
         //Set the response type header to JSON
-        resp.setContentType("application/json");
+        resp.setContentType("application/json; charset=UTF-8");
 
         final List<Resource> resources = new ArrayList<Resource>();
 
@@ -89,8 +89,8 @@ public class ArticleEndpoint extends SlingSafeMethodsServlet {
         map.put("path", resource.getParent().getPath());
         map.put("1_property","sling:resourceType");
         map.put("1_property.value", ARTICLE_RESOURCE_TYPE);
-        //Suggested always use
-        map.put("p.guessTotal", "true");
+        map.put("p.guessTotal", "true"); //Suggested always use
+        map.put("p.limit","-1"); //Don't limit to 10 results.
 
         //Get a resource resolver
         ResourceResolver resourceResolver = req.getResourceResolver();
