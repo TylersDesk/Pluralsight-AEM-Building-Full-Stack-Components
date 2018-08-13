@@ -11,14 +11,14 @@
                 <div class="full-stack-article__content">
                     <h2 class="full-stack-article__title"><%= article.title %></h2>
                     <p class="full-stack-article__desc"><%= article.desc %></p>
-                    <a class="full-stack-article__link" href="#">Read More</a>
+                    <a class="full-stack-article__link" href="<%= article.artPath %>">Read More</a>
                 </div>
             </div>
         </div>
     <% });  %>
 </script>
 
-<div class="article-feed">
+<div class="article-feed" data-article-feed-json="${properties.feedPath}/_jcr_content.articles.json">
         <div class="row no-gutters row-eq-height js-insert-articles">
             
         </div>
