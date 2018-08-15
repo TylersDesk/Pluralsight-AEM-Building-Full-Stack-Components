@@ -34,6 +34,7 @@ import org.apache.sling.api.servlets.SlingSafeMethodsServlet;
 import org.osgi.framework.Constants;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
+import pluralsight.core.models.ArticleModel;
 
 import javax.jcr.RepositoryException;
 import javax.jcr.Session;
@@ -62,13 +63,6 @@ public class ArticleEndpoint extends SlingSafeMethodsServlet {
 
     //ResourceType of our article pages
     private static String ARTICLE_RESOURCE_TYPE = "full-stack-training/components/structure/page-article";
-
-    //Properties we will be reading from the JCR
-    private static String FEED_DESCRIPTION_PROP = "feedDesc";
-    private static String FEED_IMAGE_PROP = "fileReference";
-    private static String FEED_TITLE_PROP = "jcr:title";
-    private static String IMAGE_RESOURCE_PATH = "root/image";
-
 
     @Reference
     private QueryBuilder queryBuilder;
@@ -115,6 +109,7 @@ public class ArticleEndpoint extends SlingSafeMethodsServlet {
             }
 
         } catch (RepositoryException e) {
+            // Should log the caught exception
         } finally {
             if (leakingResourceResolver != null) {
                 // Always Close the leaking QueryBuilder resourceResolver.
@@ -122,30 +117,28 @@ public class ArticleEndpoint extends SlingSafeMethodsServlet {
             }
         }
 
-        //Create a new JsonArray to store json objects in, this is what we will pass back from our endpooint.
-        JsonArray jsonArray = new JsonArray();
+        //Create an ArrayList to store objects in, we will turn this to JSON with GSON.
+        ArrayList<ArticleModel> allArticles = new ArrayList<>();
 
         //Iterate over the resources in our list from the query.
         Iterator<Resource> resourceIterator= resources.iterator();
         while (resourceIterator.hasNext()) {
+
+            //Grab the current Resource/Article
             Resource currentResource = resourceIterator.next();
-            ValueMap vm = currentResource.getValueMap();
-            JsonObject json = new JsonObject();
-            json.addProperty("title", vm.get(FEED_TITLE_PROP,""));
-            json.addProperty("artPath", currentResource.getPath());
-            json.addProperty("desc", vm.get(FEED_DESCRIPTION_PROP, ""));
 
-            //Have to do something a little different for our image path.
-            Resource imageResource = currentResource.getChild(IMAGE_RESOURCE_PATH);
-            String imageRef = imageResource.getValueMap().get(FEED_IMAGE_PROP, "");
-            json.addProperty("image", imageRef);
+            //Adapt it to our Sling Model (aka make it an article!)
+            ArticleModel currenArticle = currentResource.adaptTo(ArticleModel.class);
 
-            // Add our json object to the json array
-            jsonArray.add(json);
+            //Add it to our array.
+            allArticles.add(currenArticle);
         }
 
-        Gson gson = new Gson();
-        resp.getWriter().write(gson.toJson(jsonArray));
+        //Create our JSON string
+        String responseJson = new Gson().toJson(allArticles);
+
+        // Finally send the JSON as the response of our servlet!
+        resp.getWriter().write(responseJson);
     }
 
     String getString() {
