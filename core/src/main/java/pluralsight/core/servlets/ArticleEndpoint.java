@@ -25,15 +25,16 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.SlingHttpServletResponse;
-import org.apache.sling.api.resource.Resource;
-import org.apache.sling.api.resource.ResourceResolver;
-import org.apache.sling.api.resource.ValueMap;
+import org.apache.sling.api.resource.*;
 import org.apache.sling.api.servlets.HttpConstants;
 import org.apache.sling.api.servlets.SlingAllMethodsServlet;
 import org.apache.sling.api.servlets.SlingSafeMethodsServlet;
+import org.apache.sling.jcr.api.SlingRepository;
 import org.osgi.framework.Constants;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import pluralsight.core.models.ArticleModel;
 
 import javax.jcr.RepositoryException;
@@ -59,6 +60,7 @@ import java.util.*;
            })
 public class ArticleEndpoint extends SlingSafeMethodsServlet {
 
+    private final Logger logger = LoggerFactory.getLogger(getClass());
     private static final long serialVersionUid = 1L;
 
     //ResourceType of our article pages
@@ -67,11 +69,16 @@ public class ArticleEndpoint extends SlingSafeMethodsServlet {
     @Reference
     private QueryBuilder queryBuilder;
 
+    @Reference
+    private ResourceResolverFactory resolverFactory;
+
     @Override
     protected void doGet(final SlingHttpServletRequest req,
             final SlingHttpServletResponse resp) throws ServletException, IOException {
 
         final Resource resource = req.getResource();
+
+        ResourceResolver resolver = null;
 
         //Set the response type header to JSON
         resp.setContentType("application/json; charset=UTF-8");
@@ -86,7 +93,15 @@ public class ArticleEndpoint extends SlingSafeMethodsServlet {
         map.put("p.guessTotal", "true"); //Suggested always use
         map.put("p.limit","-1"); //Don't limit to 10 results.
 
-        //Get a resource resolver
+        Map<String, Object> param = new HashMap<String, Object>();
+        param.put(ResourceResolverFactory.SUBSERVICE, "fullstack-training");
+
+        try {
+            resolver = resolverFactory.getServiceResourceResolver(param);
+        } catch (LoginException e) {
+            e.printStackTrace();
+        }
+
         ResourceResolver resourceResolver = req.getResourceResolver();
 
         //Query articles
@@ -139,6 +154,10 @@ public class ArticleEndpoint extends SlingSafeMethodsServlet {
 
         // Finally send the JSON as the response of our servlet!
         resp.getWriter().write(responseJson);
+
+        if (resolver != null) {
+            resolver.close();
+        }
     }
 
     String getString() {
