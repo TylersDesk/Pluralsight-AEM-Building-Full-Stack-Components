@@ -64,7 +64,7 @@
                         jcr:primaryType="nt:unstructured"
                         jcr:title="Full Stack Content"
                         sling:resourceType="wcm/core/components/policy/policy"
-                        components="[/apps/full-stack-training/components/content/articlefeed,/apps/full-stack-training/components/content/text,/apps/full-stack-training/components/content/title]">
+                        components="[/apps/full-stack-training/components/content/articlefeed,/apps/full-stack-training/components/content/text,/apps/full-stack-training/components/content/title,/apps/full-stack-training/components/content/article-feed-component]">
                         <jcr:content
                             cq:lastReplicated="{Date}2018-08-08T22:19:37.271-06:00"
                             cq:lastReplicatedBy="admin"
