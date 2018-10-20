@@ -1,0 +1,27 @@
+<p>Article Feed Component</p>
+<p>Selected Path: ${properties.articlepath}</p>
+
+<!-- Underscore Template -->
+<script type="text/template" id="articleView">
+    <% _.each(articles, function(article) { %>
+        <div class="col-6 col-md-4 col-lg-3">
+            <div class="full-stack-article">
+                <div class="full-stack-article__img">
+                    <img class="img-fluid" src="<%= article.image %>" />
+                </div>
+                <div class="full-stack-article__content">
+                    <h2 class="full-stack-article__title"><%= article.title %></h2>
+                    <p class="full-stack-article__desc"><%= article.desc %></p>
+                    <a class="full-stack-article__link" href="#">Read More</a>
+                </div>
+            </div>
+        </div>
+    <% });  %>
+</script>
+
+<!-- Code Injection Tag -->
+<div class="article-feed">
+    <div class="row no-gutters row-eq-height js-insert-articles">
+        
+    </div>
+</div>
