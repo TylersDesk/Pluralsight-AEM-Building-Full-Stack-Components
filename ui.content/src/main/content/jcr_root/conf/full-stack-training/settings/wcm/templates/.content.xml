@@ -3,5 +3,5 @@
     jcr:mixinTypes="[rep:AccessControllable]"
     jcr:primaryType="cq:Page">
     <content-page/>
-    <article-page-templates/>
+    <article-page/>
 </jcr:root>

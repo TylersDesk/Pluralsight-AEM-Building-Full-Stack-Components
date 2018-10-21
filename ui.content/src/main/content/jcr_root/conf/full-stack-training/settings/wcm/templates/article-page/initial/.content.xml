@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:lastModified="{Date}2018-10-20T23:00:00.489-06:00"
+        cq:lastModifiedBy="admin"
+        cq:template="/conf/full-stack-training/settings/wcm/templates/article-page"
+        jcr:primaryType="cq:PageContent"
+        sling:resourceType="full-stack-training/components/structure/page-article">
+        <root
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="wcm/foundation/components/responsivegrid">
+            <content_container
+                jcr:created="{Date}2018-10-20T22:05:31.599-06:00"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2018-10-20T22:08:16.129-06:00"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="full-stack-training/components/structure/content-container">
+                <content
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="wcm/foundation/components/responsivegrid"/>
+            </content_container>
+            <image
+                jcr:created="{Date}2018-10-20T22:56:53.501-06:00"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2018-10-20T23:00:00.487-06:00"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="full-stack-training/components/content/image"
+                alt="meta data"
+                altValueFromDAM="false"
+                displayPopupTitle="false"
+                fileReference="/content/dam/we-retail/en/experiences/arctic-surfing-in-lofoten/majestic-rainbow.jpg"
+                isDecorative="false"
+                titleValueFromDAM="false"/>
+        </root>
+    </jcr:content>
+</jcr:root>
