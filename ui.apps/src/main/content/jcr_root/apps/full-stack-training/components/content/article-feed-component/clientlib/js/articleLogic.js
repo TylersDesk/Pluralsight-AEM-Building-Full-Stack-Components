@@ -8,7 +8,16 @@
     console.log(fullStack.fakeJson);
 
     fullStack.init = function(){
-        $('.js-insert-articles').append(fullStack.template({articles:fullStack.fakeJson}));
+
+        var articleFeed = $(".article-feed").data('article-feed-json');
+
+        $.ajax({
+            url:articleFeed
+        }).done(function(jsonResponse){
+            $('.js-insert-articles').append(fullStack.template({articles:jsonResponse}));
+        })
+
+        
     };
 
     //Fire it all

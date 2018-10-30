@@ -4,23 +4,21 @@
 <!-- Underscore Template -->
 <script type="text/template" id="articleView">
     <% _.each(articles, function(article) { %>
-        <div class="col-6 col-md-4 col-lg-3">
+        <div class="col-6 col-md-4 col-lg-3 full-stack-article-container">
             <div class="full-stack-article">
-                <div class="full-stack-article__img">
-                    <img class="img-fluid" src="<%= article.image %>" />
-                </div>
+                <div class="full-stack-article__img" style="background-image:url(<%= article.image %>/jcr:content/renditions/cq5dam.web.1280.1280.jpeg)"></div>
                 <div class="full-stack-article__content">
                     <h2 class="full-stack-article__title"><%= article.title %></h2>
                     <p class="full-stack-article__desc"><%= article.desc %></p>
-                    <a class="full-stack-article__link" href="#">Read More</a>
                 </div>
+                <a class="full-stack-article__link" href="<%= article.artPath %>.html">Read More</a>
             </div>
         </div>
     <% });  %>
 </script>
 
 <!-- Code Injection Tag -->
-<div class="article-feed">
+<div class="article-feed" data-article-feed-json="${properties.articlepath}/_jcr_content.articles.json">
     <div class="row no-gutters row-eq-height js-insert-articles">
         
     </div>
