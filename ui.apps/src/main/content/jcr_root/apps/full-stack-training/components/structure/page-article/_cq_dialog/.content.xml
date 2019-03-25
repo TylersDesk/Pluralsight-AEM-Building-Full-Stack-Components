@@ -28,7 +28,6 @@
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/coral/foundation/container">
                                 <items jcr:primaryType="nt:unstructured">
-                                    
                                     <section
                                         jcr:primaryType="nt:unstructured"
                                         jcr:title="Article Meta"
@@ -47,17 +46,15 @@
                                                 sling:resourceType="granite/ui/components/coral/foundation/form/textarea"
                                                 fieldLabel="Description for Feed"
                                                 maxlength="{Long}60"
-                                                required="{Boolean}true"
-                                                name="./feedDesc"/>
+                                                name="./feedDesc"
+                                                required="{Boolean}true"/>
                                             <articledate
                                                 cq:showOnCreate="{Boolean}true"
                                                 jcr:primaryType="nt:unstructured"
                                                 sling:resourceType="/libs/granite/ui/components/coral/foundation/form/datepicker"
                                                 fieldLabel="Article Date"
-                                                required="{Boolean}true"
-                                                name="./articleDate"/>
-                                            
-                                                
+                                                name="./articleDate"
+                                                required="{Boolean}true"/>
                                         </items>
                                     </section>
                                 </items>

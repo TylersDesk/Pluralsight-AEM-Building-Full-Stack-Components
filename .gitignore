@@ -74,3 +74,9 @@ buildNumber.properties
 ### IntelliJ ###
 .idea/
 *.iml
+
+### Node Stuff
+
+bower_components/
+node_modules/
+node/

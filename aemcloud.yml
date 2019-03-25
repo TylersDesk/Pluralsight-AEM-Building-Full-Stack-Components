@@ -1,0 +1,17 @@
+version: v2
+environments:
+  - name: summit
+    author: true
+    publish: 1
+    aem_version: 6.4.3.0
+    sample_content: true
+    packages:
+      - packages/aem-cloud-connector-app-1.0.8.zip
+      - packages/full-stack-training.ui.content-1.0-SNAPSHOT.zip
+build:
+  sync_root: ui.apps/src/main/content
+  sync_on_start: true
+  image: 'maven:3.5-jdk-8'
+  script:
+    - 'mvn clean install -PautoInstallPackage -Padobe-public'
+  artifactPath: ui.apps/target
